@@ -1,12 +1,13 @@
 extends Area3D
 
-@onready var player_node = $Player
-
 signal left_area
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-		left_area.connect(player_node._on_area_left)
+	var scene_resource = preload("res://Scenes/Prefabs/player.tscn")
+	var scene_instance = scene_resource.instantiate()
+	var specific_node = scene_instance.get_node(".")
+	left_area.connect(specific_node._on_area_left)
 
 
 
