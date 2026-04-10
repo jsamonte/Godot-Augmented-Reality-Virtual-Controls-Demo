@@ -37,10 +37,10 @@ tracker = &"left_hand"
 
 [node name="LeftPhysicsHand" parent="XROrigin3D/LeftHandXRController3D" unique_id=1630793876 instance=ExtResource("2_4ad6s")]
 transform = Transform3D(-0.015218668, 0.9998842, 0, -0.9998842, -0.015218668, 0, 0, 0, 1, 0, 0, 0)
-visible = false
 hand_material_override = ExtResource("3_7136s")
 
 [node name="Area3D" type="Area3D" parent="XROrigin3D/LeftHandXRController3D" unique_id=21996500]
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/LeftHandXRController3D/Area3D" unique_id=314082774]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
@@ -55,11 +55,11 @@ tracker = &"right_hand"
 
 [node name="RightPhysicsHand" parent="XROrigin3D/RightHandXRController3D" unique_id=1562078344 instance=ExtResource("4_eejac")]
 transform = Transform3D(0.01563755, -0.99987775, 0, 0.99987775, 0.01563755, 0, 0, 0, 1, 0, 0, 0)
-visible = false
 collision_layer = 131073
 hand_material_override = ExtResource("3_7136s")
 
 [node name="Area3D" type="Area3D" parent="XROrigin3D/RightHandXRController3D" unique_id=2018032543]
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/RightHandXRController3D/Area3D" unique_id=1810120952]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)

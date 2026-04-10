@@ -64,21 +64,6 @@ func handle_jumping():
 		elif double_jump and jump_count > 0:
 			jump()
 			jump_count -= 1
-			
-func area_left():
-	velocity = Vector2(-1 * move_speed, velocity.y)
-	move_and_slide()
-	
-func area_right():
-	velocity = Vector2(1 * move_speed, velocity.y)
-	move_and_slide()
-			
-func area_jumping():
-		if is_on_floor() and !double_jump:
-			jump()
-		elif double_jump and jump_count > 0:
-			jump()
-			jump_count -= 1
 
 # Player jump
 func jump():
