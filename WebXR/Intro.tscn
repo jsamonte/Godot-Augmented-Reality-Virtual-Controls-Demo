@@ -12,9 +12,18 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_3vwnl"]
 
+[sub_resource type="SphereMesh" id="SphereMesh_3vwnl"]
+material = ExtResource("3_7136s")
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_kqavt"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_kqavt"]
+material = ExtResource("3_7136s")
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_lkqbt"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_lkqbt"]
+material = ExtResource("3_7136s")
 
 [node name="Node3D" type="Node3D" unique_id=1790925141]
 
@@ -63,6 +72,9 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 shape = SubResource("SphereShape3D_3vwnl")
 debug_fill = false
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Jump/CollisionShape3D" unique_id=530243471]
+mesh = SubResource("SphereMesh_3vwnl")
+
 [node name="Left" type="Area3D" parent="." unique_id=644241848]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.2, 0, -0.2)
 script = ExtResource("8_caxrg")
@@ -71,6 +83,9 @@ script = ExtResource("8_caxrg")
 shape = SubResource("BoxShape3D_kqavt")
 debug_fill = false
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Left/CollisionShape3D" unique_id=959264187]
+mesh = SubResource("BoxMesh_kqavt")
+
 [node name="Right" type="Area3D" parent="." unique_id=1390158897]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.2, 0, -0.2)
 script = ExtResource("9_3vwnl")
@@ -78,6 +93,9 @@ script = ExtResource("9_3vwnl")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Right" unique_id=1934509761]
 shape = SubResource("BoxShape3D_lkqbt")
 debug_fill = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Right/CollisionShape3D" unique_id=1000660928]
+mesh = SubResource("BoxMesh_lkqbt")
 
 [node name="StartXR" parent="." unique_id=109556146 instance=ExtResource("5_33olo")]
 enable_passthrough = true
