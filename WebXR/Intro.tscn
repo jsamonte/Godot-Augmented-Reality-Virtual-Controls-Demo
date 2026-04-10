@@ -123,5 +123,8 @@ mesh = SubResource("BoxMesh_lkqbt")
 enable_passthrough = true
 
 [connection signal="area_entered" from="Jump" to="Jump" method="_on_area_entered"]
+[connection signal="area_exited" from="Jump" to="Jump" method="_on_area_exited"]
 [connection signal="area_entered" from="Left" to="Left" method="_on_area_entered"]
+[connection signal="area_exited" from="Left" to="Left" method="_on_area_exited"]
 [connection signal="area_entered" from="Right" to="Right" method="_on_area_entered"]
+[connection signal="area_exited" from="Right" to="Right" method="_on_area_exited"]
