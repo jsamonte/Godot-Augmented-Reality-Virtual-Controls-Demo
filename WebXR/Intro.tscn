@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://d0guj5e0yu7vc"]
+
+[ext_resource type="PackedScene" uid="uid://nqiyqnx42m61" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_fullglove_physics_hand.tscn" id="2_4ad6s"]
+[ext_resource type="Material" uid="uid://dyuaw57o8y3i" path="res://addons/godot-xr-tools/materials/highlight.tres" id="3_7136s"]
+[ext_resource type="PackedScene" uid="uid://cigx2gnf4tg4d" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_fullglove_physics_hand.tscn" id="4_eejac"]
+[ext_resource type="PackedScene" uid="uid://clc5dre31iskm" path="res://addons/godot-xr-tools/xr/start_xr.tscn" id="5_33olo"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="6_465o5"]
+[ext_resource type="Script" uid="uid://d0tjxn3r50vec" path="res://WebXR/jump.gd" id="7_caxrg"]
+[ext_resource type="PackedScene" uid="uid://cjanwm3sy2x37" path="res://Scenes/Levels/Level_01.tscn" id="7_en8wm"]
+[ext_resource type="Script" uid="uid://l8hyutnwh47e" path="res://WebXR/left.gd" id="8_caxrg"]
+[ext_resource type="Script" uid="uid://cepkr6sn8quio" path="res://WebXR/right.gd" id="9_3vwnl"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3vwnl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kqavt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lkqbt"]
+
+[node name="Node3D" type="Node3D" unique_id=1790925141]
+
+[node name="XROrigin3D" type="XROrigin3D" parent="." unique_id=875051348]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D" unique_id=396536274]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.015687883)
+
+[node name="LeftHandXRController3D" type="XRController3D" parent="XROrigin3D" unique_id=1223899391]
+tracker = &"left_hand"
+
+[node name="LeftPhysicsHand" parent="XROrigin3D/LeftHandXRController3D" unique_id=1630793876 instance=ExtResource("2_4ad6s")]
+transform = Transform3D(-0.015218668, 0.9998842, 0, -0.9998842, -0.015218668, 0, 0, 0, 1, 0, 0, 0)
+hand_material_override = ExtResource("3_7136s")
+
+[node name="RightHandXRController3D" type="XRController3D" parent="XROrigin3D" unique_id=1831618891]
+tracker = &"right_hand"
+
+[node name="RightPhysicsHand" parent="XROrigin3D/RightHandXRController3D" unique_id=1562078344 instance=ExtResource("4_eejac")]
+transform = Transform3D(0.01563755, -0.99987775, 0, 0.99987775, 0.01563755, 0, 0, 0, 1, 0, 0, 0)
+collision_layer = 131073
+hand_material_override = ExtResource("3_7136s")
+
+[node name="StartXR" parent="." unique_id=648770852 instance=ExtResource("5_33olo")]
+enable_passthrough = true
+
+[node name="Viewport2Din3D" parent="." unique_id=718221118 instance=ExtResource("6_465o5")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -0.19063103, 1.4752839, -1.949627)
+scene = ExtResource("7_en8wm")
+viewport_size = Vector2(1300, 1000)
+transparent = 1
+filter = false
+scene_properties_keys = PackedStringArray()
+
+[node name="Level_01" parent="Viewport2Din3D" unique_id=1482364064 instance=ExtResource("7_en8wm")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1176344002]
+transform = Transform3D(1, 0, 0, 0, 0.48606083, 0.873925, 0, -0.873925, 0.48606083, 0, 4, -1.5808384)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=992039990]
+autoplay = true
+
+[node name="Jump" type="Area3D" parent="." unique_id=858070616]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.2)
+script = ExtResource("7_caxrg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Jump" unique_id=1019836745]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+shape = SubResource("SphereShape3D_3vwnl")
+debug_fill = false
+
+[node name="Left" type="Area3D" parent="." unique_id=644241848]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.2, 0, -0.2)
+script = ExtResource("8_caxrg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Left" unique_id=1529686667]
+shape = SubResource("BoxShape3D_kqavt")
+debug_fill = false
+
+[node name="Right" type="Area3D" parent="." unique_id=1390158897]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.2, 0, -0.2)
+script = ExtResource("9_3vwnl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Right" unique_id=1934509761]
+shape = SubResource("BoxShape3D_lkqbt")
+debug_fill = false
+
+[connection signal="area_entered" from="Jump" to="Jump" method="_on_area_entered"]
+[connection signal="area_entered" from="Left" to="Left" method="_on_area_entered"]
+[connection signal="area_entered" from="Right" to="Right" method="_on_area_entered"]
