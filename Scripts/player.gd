@@ -1,11 +1,5 @@
 extends CharacterBody2D
 
-# ----- CUSTOM VARIABLES ------ #
-
-signal jump_area
-signal left_area
-signal right_area
-
 # --------- VARIABLES ---------- #
 
 @export_category("Player Properties") # You can tweak these changes according to your likings

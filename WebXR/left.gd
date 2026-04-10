@@ -15,6 +15,8 @@ func _process(delta: float) -> void:
 	pass
 
 
+
+
 func _on_area_entered(area: Area3D) -> void:
 	Input.action_press("Left")
 	$CollisionShape3D/MeshInstance3D.hide()
@@ -23,5 +25,5 @@ func _on_area_entered(area: Area3D) -> void:
 
 func _on_area_exited(area: Area3D) -> void:
 	Input.action_release("Left")
-	$CollisionShape3D/MeshInstance3D.show()
-	$CollisionShape3D/MeshInstance3D2.hide()
+	$CollisionShape3D/MeshInstance3D.hide()
+	$CollisionShape3D/MeshInstance3D2.show()	
