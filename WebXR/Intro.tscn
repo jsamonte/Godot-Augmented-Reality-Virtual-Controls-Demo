@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="6_465o5"]
 [ext_resource type="Script" uid="uid://d0tjxn3r50vec" path="res://WebXR/jump.gd" id="7_caxrg"]
 [ext_resource type="PackedScene" uid="uid://cjanwm3sy2x37" path="res://Scenes/Levels/Level_01.tscn" id="7_en8wm"]
+[ext_resource type="Material" path="res://addons/godot-xr-tools/materials/pointer.tres" id="7_kqavt"]
 [ext_resource type="Script" uid="uid://l8hyutnwh47e" path="res://WebXR/left.gd" id="8_caxrg"]
 [ext_resource type="Script" uid="uid://cepkr6sn8quio" path="res://WebXR/right.gd" id="9_3vwnl"]
 
@@ -15,15 +16,24 @@
 [sub_resource type="SphereMesh" id="SphereMesh_3vwnl"]
 material = ExtResource("3_7136s")
 
+[sub_resource type="SphereMesh" id="SphereMesh_lkqbt"]
+material = ExtResource("7_kqavt")
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_kqavt"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_kqavt"]
 material = ExtResource("3_7136s")
 
+[sub_resource type="BoxMesh" id="BoxMesh_73k6i"]
+material = ExtResource("7_kqavt")
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_lkqbt"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_lkqbt"]
 material = ExtResource("3_7136s")
+
+[sub_resource type="BoxMesh" id="BoxMesh_rhy5w"]
+material = ExtResource("7_kqavt")
 
 [node name="Node3D" type="Node3D" unique_id=1790925141]
 
@@ -97,6 +107,10 @@ debug_fill = false
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Jump/CollisionShape3D" unique_id=530243471]
 mesh = SubResource("SphereMesh_3vwnl")
 
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Jump/CollisionShape3D" unique_id=844725008]
+visible = false
+mesh = SubResource("SphereMesh_lkqbt")
+
 [node name="Left" type="Area3D" parent="." unique_id=644241848]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.42, 1.475, -1.95)
 script = ExtResource("8_caxrg")
@@ -108,6 +122,10 @@ debug_fill = false
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Left/CollisionShape3D" unique_id=959264187]
 mesh = SubResource("BoxMesh_kqavt")
 
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Left/CollisionShape3D" unique_id=745238300]
+visible = false
+mesh = SubResource("BoxMesh_73k6i")
+
 [node name="Right" type="Area3D" parent="." unique_id=1390158897]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.011, 1.475, -1.95)
 script = ExtResource("9_3vwnl")
@@ -118,6 +136,11 @@ debug_fill = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Right/CollisionShape3D" unique_id=1000660928]
 mesh = SubResource("BoxMesh_lkqbt")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Right/CollisionShape3D" unique_id=1601870866]
+visible = false
+mesh = SubResource("BoxMesh_rhy5w")
+skeleton = NodePath("../..")
 
 [node name="StartXR" parent="." unique_id=109556146 instance=ExtResource("5_33olo")]
 enable_passthrough = true
