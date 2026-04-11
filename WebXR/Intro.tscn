@@ -80,7 +80,7 @@ debug_fill = false
 mesh = SubResource("SphereMesh_3vwnl")
 
 [node name="Viewport2Din3D" parent="." unique_id=718221118 instance=ExtResource("6_465o5")]
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -0.19063103, 1.4752839, -1.949627)
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -0.191, 0.75, -1.95)
 scene = ExtResource("7_en8wm")
 viewport_size = Vector2(1300, 1000)
 transparent = 1
@@ -96,7 +96,7 @@ transform = Transform3D(1, 0, 0, 0, 0.48606083, 0.873925, 0, -0.873925, 0.486060
 autoplay = true
 
 [node name="Jump" type="Area3D" parent="." unique_id=858070616]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.191, 1.475, -1.95)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.191, 0.75, -1.95)
 script = ExtResource("7_caxrg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Jump" unique_id=1019836745]
@@ -112,7 +112,7 @@ visible = false
 mesh = SubResource("SphereMesh_lkqbt")
 
 [node name="Left" type="Area3D" parent="." unique_id=644241848]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.42, 1.475, -1.95)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.42, 0.75, -1.95)
 script = ExtResource("8_caxrg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Left" unique_id=1529686667]
@@ -127,7 +127,7 @@ visible = false
 mesh = SubResource("BoxMesh_73k6i")
 
 [node name="Right" type="Area3D" parent="." unique_id=1390158897]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.011, 1.475, -1.95)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.011, 0.75, -1.95)
 script = ExtResource("9_3vwnl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Right" unique_id=1934509761]
